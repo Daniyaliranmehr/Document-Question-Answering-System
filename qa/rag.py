@@ -1,7 +1,7 @@
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
-
 from qa.llm import ask_llm
+from qa.vector_store import create_vector_store, retrieve_similar_chunks
+import re
 
 
 def build_documents(text):
@@ -11,43 +11,35 @@ def build_documents(text):
     return [Document(page_content=text)]
 
 
-def split_documents(docs):
+def semantic_split(text):
     """
-    Split documents into smaller text chunks.
+    Split text into sentence-based semantic chunks.
     """
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50
-    )
-    return splitter.split_documents(docs)
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    chunks = []
+    current_chunk = ""
+    max_words = 120
 
+    for sentence in sentences:
+        if len(current_chunk.split()) + len(sentence.split()) <= max_words:
+            current_chunk += " " + sentence
+        else:
+            if current_chunk:
+                chunks.append(current_chunk.strip())
+            current_chunk = sentence
 
-def retrieve_context(chunks, question):
-    """
-    Retrieve the most relevant chunk using simple keyword matching.
-    """
-    best_chunk = ""
+    if current_chunk:
+        chunks.append(current_chunk.strip())
 
-    for chunk in chunks:
-        if question.lower() in chunk.page_content.lower():
-            best_chunk = chunk.page_content
-            break
-
-    if not best_chunk and chunks:
-        best_chunk = chunks[0].page_content
-
-    return best_chunk
+    return [Document(page_content=c) for c in chunks]
 
 
 def rag_pipeline(question, full_text):
     """
     Execute the complete RAG pipeline.
     """
-
-    docs = build_documents(full_text)  # raw text → LangChain documents
-    chunks = split_documents(docs)  # documents → chunks
-    context = retrieve_context(chunks, question)  # find the best chunk
-
-    answer = ask_llm(question, context)
-
+    docs = semantic_split(full_text)                # 1. chunking
+    vectorstore = create_vector_store(docs)        # 2. embedding + FAISS
+    context = retrieve_similar_chunks(vectorstore, question)  # 3. retrieval
+    answer = ask_llm(question, context)            # 4. LLM response
     return answer
