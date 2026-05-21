@@ -24,13 +24,9 @@ def save_vector_store(vectorstore, path="faiss_index"):
 
 def load_vector_store(path="faiss_index"):
     """
-    Load FAISS vector database from disk.
+    Load FAISS vector database from local disk.
     """
-    return FAISS.load_local(
-        path,
-        embedding_model,
-        allow_dangerous_deserialization=True
-    )
+    return FAISS.load_local(path, embedding_model, allow_dangerous_deserialization=True)
 
 
 def retrieve_similar_chunks(vectorstore, question, k=3):
