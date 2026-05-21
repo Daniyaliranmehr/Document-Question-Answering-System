@@ -15,6 +15,24 @@ def create_vector_store(chunks):
     return vectorstore
 
 
+def save_vector_store(vectorstore, path="faiss_index"):
+    """
+    Save FAISS vector database locally.
+    """
+    vectorstore.save_local(path)
+
+
+def load_vector_store(path="faiss_index"):
+    """
+    Load FAISS vector database from disk.
+    """
+    return FAISS.load_local(
+        path,
+        embedding_model,
+        allow_dangerous_deserialization=True
+    )
+
+
 def retrieve_similar_chunks(vectorstore, question, k=3):
     """
     Retrieve top-k most relevant chunks using semantic similarity search.
