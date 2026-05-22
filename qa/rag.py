@@ -42,27 +42,25 @@ def semantic_split(text):
     return [LC_Document(page_content=c) for c in chunks]
 
 
-def rag_pipeline(question, index_path="faiss_index"):
+def rag_pipeline(question):
     """
     Execute the complete RAG pipeline.
-    - Automatically builds vectorstore if it does not exist.
-    - Retrieves top-k relevant chunks using semantic similarity.
-    - Returns LLM answer.
     """
-    # Step 1: Load or create FAISS vectorstore
-    if not os.path.exists(index_path):
-        # Fetch all text from database (Django model)
-        all_docs = Document.objects.all()
-        chunks = []
-        for doc in all_docs:
-            chunks.extend(semantic_split(doc.content))
-        vectorstore = create_vector_store(chunks)
-        save_vector_store(vectorstore, path=index_path)
-    else:
-        vectorstore = load_vector_store(path=index_path)
-    
-    # Step 2: Semantic retrieval
-    context = retrieve_similar_chunks(vectorstore, question)  # top-k chunks
 
-    # Step 3: LLM answer
+    # Step 1: Load all documents from database
+    all_docs = Document.objects.all()
+
+    # Step 2: Split all documents into chunks
+    chunks = []
+
+    for doc in all_docs:
+        chunks.extend(semantic_split(doc.content))
+
+    # Step 3: Create vector store
+    vectorstore = create_vector_store(chunks)
+
+    # Step 4: Retrieve relevant chunks
+    context = retrieve_similar_chunks(vectorstore, question)
+
+    # Step 5: Generate answer using LLM
     return ask_llm(question, context)
