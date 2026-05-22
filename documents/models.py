@@ -9,13 +9,13 @@ class Document(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
+        is_new = self.pk is None
 
         super().save(*args, **kwargs)
 
-        if self.file.name.endswith('.docx'):
+        if is_new and self.file and self.file.name.endswith('.docx'):
             self.content = extract_text_from_docx(self.file.path)
-
-        super().save(update_fields=['content'])
+            super().save(update_fields=['content'])
 
     def __str__(self):
         return self.title
