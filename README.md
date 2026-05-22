@@ -20,3 +20,26 @@ The entire workflow, including document management, question submission, and ans
 - Django Admin-based management interface
 - API support for document management and question answering
 - LangChain integration for LLM orchestration
+
+## Demo
+
+**(PENDING)**
+
+## Tech Stack
+
+### Backend
+- Python
+- Django
+
+### AI System
+- LangChain
+- Retrieval-Augmented Generation (RAG)
+- FAISS
+- HuggingFace Embeddings
+- OpenRouter API
+
+### Database
+- SQLite
+
+### Deployment
+- Docker **(PENDING)**
