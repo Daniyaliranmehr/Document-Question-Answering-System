@@ -150,3 +150,71 @@ Stores the FAISS vector index used for semantic similarity search and document r
 - Enables fast semantic search across uploaded documents
 - Used by the RAG pipeline to retrieve the most relevant context for user questions
 - Generated automatically during vector store creation
+
+## Installation Guide
+
+Follow these steps to run the project locally. The system is fully containerized using Docker, so no manual dependency installation is required.
+
+---
+
+### 1. Clone the repository
+Download the project source code from GitHub:
+
+```bash
+git clone https://github.com/Daniyaliranmehr/Document-Question-Answering-System.git
+cd Document-Question-Answering-System
+```
+
+---
+
+### 2. Configure environment variables
+Create a `.env` file in the project root directory and add the following variables:
+
+```
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+HF_TOKEN=your_huggingface_token_here
+```
+
+These keys are required for:
+
+- `OPENROUTER_API_KEY`: Access to the Large Language Model via OpenRouter
+- `HF_TOKEN`: Access to Hugging Face embedding models
+
+---
+
+#### 🔑 How to get the API keys
+
+**OpenRouter API Key:**
+- Sign up at: https://openrouter.ai
+- Go to your dashboard and create an API key
+
+**Hugging Face Token:**
+- Sign up at: https://huggingface.co
+- Go to: https://huggingface.co/settings/tokens
+- Create a new token (read access is enough for this project)
+
+---
+
+### 3. Build and run the project with Docker
+Docker will automatically set up the environment and install all dependencies.
+
+```bash
+docker compose build
+docker compose up
+```
+
+> Note: The first build may take several minutes as Docker downloads required images and dependencies.
+
+---
+
+### 4. Access the application
+After successful startup, access the system via:
+
+- Django Admin Panel: http://127.0.0.1:8000/admin
+
+---
+
+### Notes
+- Make sure Docker is installed and running before starting the project
+- All dependencies are handled automatically inside Docker
+- No manual Python or package installation is required
