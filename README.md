@@ -50,6 +50,12 @@ The project follows a modular Django-based architecture composed of two main app
 
 ---
 
+## QA Application Overview
+
+The `qa` application is responsible for the core question-answering functionality of the system. It implements a full Retrieval-Augmented Generation (RAG) pipeline that processes user queries, retrieves relevant document context, and generates AI-based answers.
+
+---
+
 ### `models.py`
 Defines the data structure for storing user questions and generated answers.
 
