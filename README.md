@@ -266,3 +266,23 @@ After running the project and openning the admin panel, all interactions are han
 
 **Currently**, this project does not expose any public REST API endpoints.  
 All interactions are handled through the Django Admin interface.
+
+## Docker
+
+The project is containerized using Docker and can be run using Docker Compose.
+
+### Services
+
+- **web**: Django application server
+
+### Environment
+
+Environment variables are loaded from `.env`.
+
+### Volumes
+
+Local project directory is mounted into the container for development.
+
+### Ports
+
+- `8000:8000`
