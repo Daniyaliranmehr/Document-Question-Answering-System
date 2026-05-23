@@ -141,7 +141,7 @@ Integrates the Document model into Django Admin.
 
 ### Vector Store (FAISS Index)
 
-The system uses FAISS to store vector embeddings of document chunks for efficient similarity search.
+The system uses `FAISS` to store vector embeddings of document chunks for efficient similarity search.
 
 #### `faiss_index/`
 Stores the FAISS vector index used for semantic similarity search and document retrieval.
@@ -261,3 +261,8 @@ After running the project and openning the admin panel, all interactions are han
   - The original question
   - The generated answer
   - Timestamp of creation
+
+## API
+
+**Currently**, this project does not expose any public REST API endpoints.  
+All interactions are handled through the Django Admin interface.
