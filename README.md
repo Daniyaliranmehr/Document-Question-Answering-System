@@ -286,3 +286,12 @@ Local project directory is mounted into the container for development.
 ### Ports
 
 - `8000:8000`
+
+## Future Improvements
+
+- Add REST API endpoints for external integrations
+- Support additional document formats such as PDF and TXT
+- Persist FAISS vector index instead of rebuilding on each query
+- Implement user authentication and multi-user support
+- Add conversation history and chat interface
+- Upgrade to more advanced commercial LLMs as computational and financial resources become available
