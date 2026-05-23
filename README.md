@@ -46,17 +46,15 @@ The entire workflow, including document management, question submission, and ans
 
 ## System Architecture
 
-The project follows a modular Django-based architecture composed of two main applications: `documents` and `qa`.
+The project follows a modular Django-based architecture composed of two main applications: `documents` and `qa`, along with a FAISS-based vector store for semantic retrieval.
 
 ---
 
-## QA Application Overview
+### QA Application Overview
 
 The `qa` application is responsible for the core question-answering functionality of the system. It implements a full Retrieval-Augmented Generation (RAG) pipeline that processes user queries, retrieves relevant document context, and generates AI-based answers.
 
----
-
-### `models.py`
+#### `models.py`
 Defines the data structure for storing user questions and generated answers.
 
 - Stores each question submitted by the user
@@ -65,7 +63,7 @@ Defines the data structure for storing user questions and generated answers.
 
 ---
 
-### `admin.py`
+#### `admin.py`
 Integrates the QA system with Django Admin and triggers the RAG pipeline automatically.
 
 - Registers `QARecord` model in Django Admin
@@ -75,7 +73,7 @@ Integrates the QA system with Django Admin and triggers the RAG pipeline automat
 
 ---
 
-### `rag.py`
+#### `rag.py`
 Implements the full Retrieval-Augmented Generation pipeline.
 
 - Loads all documents from the database
@@ -87,7 +85,7 @@ Implements the full Retrieval-Augmented Generation pipeline.
 
 ---
 
-### `vector_store.py`
+#### `vector_store.py`
 Handles embedding generation and vector similarity search.
 
 - Uses HuggingFace embeddings (`all-MiniLM-L6-v2`) to convert text into vectors
@@ -97,7 +95,7 @@ Handles embedding generation and vector similarity search.
 
 ---
 
-### `llm.py`
+#### `llm.py`
 Manages communication with the external Large Language Model via OpenRouter API.
 
 - Uses OpenRouter API for LLM inference
@@ -109,13 +107,11 @@ Manages communication with the external Large Language Model via OpenRouter API.
 
 ---
 
-## Documents Application Overview
+### Documents Application Overview
 
 The `documents` application is responsible for document ingestion, storage, and text extraction. It handles DOCX file uploads and prepares raw text data for downstream processing in the RAG pipeline.
 
----
-
-### `models.py`
+#### `models.py`
 Defines the structure and behavior of uploaded documents.
 
 - Stores document title and uploaded file
@@ -125,7 +121,7 @@ Defines the structure and behavior of uploaded documents.
 
 ---
 
-### `utils.py`
+#### `utils.py`
 Provides utility functions for document processing.
 
 - Extracts raw text from DOCX files using `python-docx`
@@ -134,9 +130,23 @@ Provides utility functions for document processing.
 
 ---
 
-### `admin.py`
+#### `admin.py`
 Integrates the Document model into Django Admin.
 
 - Registers `Document` model in the admin interface
 - Enables upload and management of DOCX files
 - Provides access to extracted content for verification and debugging
+
+---
+
+### Vector Store (FAISS Index)
+
+The system uses FAISS to store vector embeddings of document chunks for efficient similarity search.
+
+#### `faiss_index/`
+Stores the FAISS vector index used for semantic similarity search and document retrieval.
+
+- Contains embedded vector representations of document chunks
+- Enables fast semantic search across uploaded documents
+- Used by the RAG pipeline to retrieve the most relevant context for user questions
+- Generated automatically during vector store creation
