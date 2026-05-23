@@ -43,3 +43,60 @@ The entire workflow, including document management, question submission, and ans
 
 ### Deployment
 - Docker **(PENDING)**
+
+## System Architecture
+
+The project follows a modular Django-based architecture composed of two main applications: `documents` and `qa`.
+
+---
+
+### `models.py`
+Defines the data structure for storing user questions and generated answers.
+
+- Stores each question submitted by the user
+- Stores the generated answer from the LLM
+- Keeps timestamp of each interaction
+
+---
+
+### `admin.py`
+Integrates the QA system with Django Admin and triggers the RAG pipeline automatically.
+
+- Registers `QARecord` model in Django Admin
+- Overrides save operation to execute the RAG pipeline
+- Automatically generates and stores the answer when a new question is submitted
+- Provides a simple interface for interacting with the QA system
+
+---
+
+### `rag.py`
+Implements the full Retrieval-Augmented Generation pipeline.
+
+- Loads all documents from the database
+- Splits document content into semantic chunks
+- Converts chunks into vector embeddings
+- Builds a FAISS vector store for similarity search
+- Retrieves relevant context based on user question
+- Passes context and question to the LLM for final answer generation
+
+---
+
+### `vector_store.py`
+Handles embedding generation and vector similarity search.
+
+- Uses HuggingFace embeddings (`all-MiniLM-L6-v2`) to convert text into vectors
+- Stores embeddings using FAISS vector database
+- Performs semantic similarity search to retrieve top-k relevant chunks
+- Supports saving and loading vector index locally
+
+---
+
+### `llm.py`
+Manages communication with the external Large Language Model via OpenRouter API.
+
+- Uses OpenRouter API for LLM inference
+- Model: `arcee-ai/trinity-large-thinking:free`
+- Sends structured prompts containing context + question
+- Uses a system prompt to enforce context-based answering
+- Handles API requests and error management
+- Returns generated responses from the LLM
