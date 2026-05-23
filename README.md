@@ -218,3 +218,46 @@ After successful startup, access the system via:
 - Make sure Docker is installed and running before starting the project
 - All dependencies are handled automatically inside Docker
 - No manual Python or package installation is required
+
+## Usage
+
+After running the project and openning the admin panel, all interactions are handled through the Django Admin panel.
+
+---
+
+### 1. Upload Documents
+- Navigate to the **Documents** section
+- Click **Add Document**
+- Upload a `.docx` file
+- The system will automatically extract and store the text content
+
+---
+
+### 2. Delete Documents
+- Go to the **Documents** section
+- Select one or more documents
+- Click **Delete**
+- The document will be removed from the system database
+
+---
+
+### 3. Edit Documents
+
+---
+
+### 3. Ask Questions (QA System)
+- Go to the **QA Records** section
+- Click **Add QA Record**
+- Enter your question
+- The system will automatically:
+  - Retrieve relevant document content using FAISS
+  - Run the RAG pipeline
+  - Generate an answer using the LLM
+
+---
+
+### 4. View Results
+- Each QA record contains:
+  - The original question
+  - The generated answer
+  - Timestamp of creation
