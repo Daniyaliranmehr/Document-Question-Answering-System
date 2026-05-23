@@ -106,3 +106,37 @@ Manages communication with the external Large Language Model via OpenRouter API.
 - Uses a system prompt to enforce context-based answering
 - Handles API requests and error management
 - Returns generated responses from the LLM
+
+---
+
+## Documents Application Overview
+
+The `documents` application is responsible for document ingestion, storage, and text extraction. It handles DOCX file uploads and prepares raw text data for downstream processing in the RAG pipeline.
+
+---
+
+### `models.py`
+Defines the structure and behavior of uploaded documents.
+
+- Stores document title and uploaded file
+- Extracts and stores text content from DOCX files
+- Automatically processes new documents upon first save
+- Ensures extracted text is available for downstream AI processing
+
+---
+
+### `utils.py`
+Provides utility functions for document processing.
+
+- Extracts raw text from DOCX files using `python-docx`
+- Iterates through all paragraphs in the document
+- Returns clean, newline-separated text for further processing
+
+---
+
+### `admin.py`
+Integrates the Document model into Django Admin.
+
+- Registers `Document` model in the admin interface
+- Enables upload and management of DOCX files
+- Provides access to extracted content for verification and debugging
