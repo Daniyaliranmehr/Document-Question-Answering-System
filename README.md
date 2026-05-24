@@ -23,7 +23,11 @@ The entire workflow, including document management, question submission, and ans
 
 ## Demo
 
-**(PENDING)**
+### Add Document
+
+<p align="center">
+  <img src="demo/Add-doc.gif" width="800"/>
+</p>
 
 ## Tech Stack
 
