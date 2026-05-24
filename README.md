@@ -294,6 +294,9 @@ After running the project and openning the admin panel, all interactions are han
 ---
 
 ### 3. Edit Documents
+- Go to the **Documents** section
+- Select one documents
+- In the content section, change the text
 
 ---
 
