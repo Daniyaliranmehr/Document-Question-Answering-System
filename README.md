@@ -29,11 +29,15 @@ The entire workflow, including document management, question submission, and ans
   <img src="demo/Add-doc.gif" width="700"/>
 </p>
 
+---
+
 ### Ask Question
 
 <p align="center">
   <img src="demo/Add-QA.gif" width="700"/>
 </p>
+
+---
 
 ### Edit Document
 
