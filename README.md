@@ -23,7 +23,30 @@ The entire workflow, including document management, question submission, and ans
 
 ## Demo
 
-### Add Document
+This section demonstrates the core functionalities of the system, including the full document management workflow and the question-answering capability powered by the RAG system.
+
+The demonstration covers the following operations:
+
+- Uploading documents into the system and viewing the extracted content
+- Editing existing documents and observing updated results in the system
+- Deleting documents from the system
+- Asking questions over the uploaded content and viewing the generated answers
+
+To illustrate these features, two sample documents are used:
+
+### 1. Daniyaliranmehr-intro.docx
+
+> Daniyal Iran Mehr is an Artificial Intelligence engineer and data scientist with a strong passion for intelligent systems and data-driven problem solving.  
+> He believes that discovering meaningful patterns and insights hidden within raw data is one of the most fascinating aspects of artificial intelligence.  
+> Beyond technology, he is deeply interested in music and enjoys playing the piano and guitar.
+
+### 2. Python.docx
+
+> Python is a high-level programming language.  
+> It was created by Guido van Rossum.  
+> Python is widely used in machine learning, web development, and automation.
+
+### Upload Document
 
 <p align="center">
   <img src="demo/Add-doc.gif" width="700"/>
@@ -43,6 +66,14 @@ The entire workflow, including document management, question submission, and ans
 
 <p align="center">
   <img src="demo/Edit-doc.gif" width="700"/>
+</p>
+
+---
+
+### Delete Document
+
+<p align="center">
+  <img src="demo/Delete-doc.gif" width="700"/>
 </p>
 
 ## Tech Stack
