@@ -35,6 +35,12 @@ The entire workflow, including document management, question submission, and ans
   <img src="demo/Add-QA.gif" width="700"/>
 </p>
 
+### Edit Document
+
+<p align="center">
+  <img src="demo/Edit-doc.gif" width="700"/>
+</p>
+
 ## Tech Stack
 
 ### Backend
