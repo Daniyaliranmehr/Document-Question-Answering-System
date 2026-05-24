@@ -32,7 +32,7 @@ The entire workflow, including document management, question submission, and ans
 ### Ask Question
 
 <p align="center">
-  <img src="demo/Add-QA.gif" width="500"/>
+  <img src="demo/Add-QA.gif" width="700"/>
 </p>
 
 ## Tech Stack
