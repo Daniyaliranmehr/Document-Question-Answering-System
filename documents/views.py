@@ -32,3 +32,14 @@ def get_document(request, document_id):
     }
 
     return JsonResponse(data)
+
+
+def delete_document(request, document_id):
+
+    doc = get_object_or_404(Document, id=document_id)
+
+    doc.delete()
+
+    return JsonResponse({
+        "message": "Document deleted successfully"
+    })
