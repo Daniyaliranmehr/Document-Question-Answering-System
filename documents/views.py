@@ -1,3 +1,18 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from .models import Document
 
-# Create your views here.
+def list_documents(request):
+
+    documents = Document.objects.all()
+
+    data = []
+
+    for doc in documents:
+        data.append({
+            "id": doc.id,
+            "title": doc.title,
+            "content": doc.content,
+            "created_at": doc.created_at,
+        })
+
+    return JsonResponse(data, safe=False)
