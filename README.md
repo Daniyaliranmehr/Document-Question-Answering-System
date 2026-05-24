@@ -42,7 +42,8 @@ The entire workflow, including document management, question submission, and ans
 - SQLite
 
 ### Deployment
-- Docker **(PENDING)**
+- Docker
+- Docker Compose
 
 ## System Architecture
 
