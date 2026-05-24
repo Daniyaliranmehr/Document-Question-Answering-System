@@ -26,7 +26,7 @@ The entire workflow, including document management, question submission, and ans
 ### Add Document
 
 <p align="center">
-  <img src="demo/Add-doc.gif" width="500"/>
+  <img src="demo/Add-doc.gif" width="700"/>
 </p>
 
 ### Ask Question
