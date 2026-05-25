@@ -8,7 +8,7 @@ from documents.models import Document
 from langchain_core.documents import Document as LC_Document
 
 from qa.llm import ask_llm
-from qa.vector_store import create_vector_store, retrieve_similar_chunks, save_vector_store, load_vector_store
+from qa.vector_store import create_vector_store, retrieve_similar_chunks
 
 
 def build_documents(text):

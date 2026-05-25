@@ -1,6 +1,5 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain_core.documents import Document
 
 
 embedding_model = HuggingFaceEmbeddings(
@@ -14,20 +13,6 @@ def create_vector_store(chunks):
     """
     vectorstore = FAISS.from_documents(chunks, embedding_model)
     return vectorstore
-
-
-def save_vector_store(vectorstore, path="faiss_index"):
-    """
-    Save FAISS vector database locally.
-    """
-    vectorstore.save_local(path)
-
-
-def load_vector_store(path="faiss_index"):
-    """
-    Load FAISS vector database from local disk.
-    """
-    return FAISS.load_local(path, embedding_model, allow_dangerous_deserialization=True)
 
 
 def retrieve_similar_chunks(vectorstore, question, k=3):
