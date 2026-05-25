@@ -406,6 +406,10 @@ Example Response:
 ##### Option 1: Update Only Title
 - Content-Type: `application/json`
 
+<p align="center">
+  <img src="assets/PATCH-title.png" width="800"/>
+</p>
+
 Example Request Body:
 
 ```json
@@ -413,10 +417,6 @@ Example Request Body:
   "title": "Updated Document Title"
 }
 ```
-
-<p align="center">
-  <img src="assets/PATCH-title.png" width="800"/>
-</p>
 
 ✔ Only the title will be updated  
 ✔ The file remains unchanged  
@@ -434,9 +434,9 @@ Request Body (form-data):
   <img src="assets/PATCH-title-file.png" width="800"/>
 </p>
 
+
 ✔ Both title and file will be updated  
 ✔ Document content will be re-extracted from the new file
-```
 
 ## Docker
 
