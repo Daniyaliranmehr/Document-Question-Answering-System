@@ -438,6 +438,21 @@ Request Body (form-data):
 ✔ Both title and file will be updated  
 ✔ Document content will be re-extracted from the new file
 
+---
+
+#### 6. Delete a Document
+- URL: `/documents/<id>/delete/`
+- Method: `DELETE`
+- Description: Permanently deletes a document from the system.
+
+<p align="center">
+  <img src="assets/DELETE.png" width="800"/>
+</p>
+
+✔ The document will be removed from the database  
+✔ This action cannot be undone  
+✔ No request body is required  
+
 ## Docker
 
 The project is containerized using Docker and can be run using Docker Compose.
