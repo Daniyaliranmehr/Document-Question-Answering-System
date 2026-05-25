@@ -419,6 +419,7 @@ Local project directory is mounted into the container for development.
 ## Future Improvements
 
 - [x] Add REST API endpoints for external integrations
+- [ ] Persist FAISS vector index instead of rebuilding it on every query
 - [ ] Support additional document formats (PDF, TXT)
 - [ ] Implement user authentication and multi-user support
 - [ ] Add conversation history and chat interface
