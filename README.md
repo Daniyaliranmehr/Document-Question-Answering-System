@@ -317,10 +317,39 @@ After running the project and openning the admin panel, all interactions are han
   - The generated answer
   - Timestamp of creation
 
-## API
+## API Reference
 
-**Currently**, this project does not expose any public REST API endpoints.  
-All interactions are handled through the Django Admin interface.
+This project exposes a REST API built with Django REST Framework (DRF) to manage documents for the RAG pipeline.
+
+### Base URL
+
+```
+http://127.0.0.1:8000/api/
+```
+
+---
+
+### Document Endpoints
+
+#### 1. List All Documents
+- URL: /documents/
+- Method: GET
+- Description: Returns a list of all uploaded documents.
+
+#### 2. Retrieve a Single Document
+- URL: /documents/<id>/
+- Method: GET
+- Description: Returns detailed information about a specific document.
+
+#### 3. Upload a Document
+- URL: /documents/upload/
+- Method: POST
+- Description: Uploads a new document to the system.
+- Content-Type: multipart/form-data
+
+Request Body (form-data):
+- title (string): Title of the document
+- file (file): The .docx file to be uploaded
 
 ## Docker
 
