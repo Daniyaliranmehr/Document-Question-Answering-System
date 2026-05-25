@@ -396,6 +396,48 @@ Example Response:
 }
 ```
 
+---
+
+#### 5. Update a Document
+- URL: `/documents/<id>/update/`
+- Method: `PATCH`
+- Description: Updates an existing document. You can either update only the title or update both title and file.
+
+##### Option 1: Update Only Title
+- Content-Type: `application/json`
+
+Example Request Body:
+
+```json
+{
+  "title": "Updated Document Title"
+}
+```
+
+<p align="center">
+  <img src="assets/PATCH-title.png" width="800"/>
+</p>
+
+✔ Only the title will be updated  
+✔ The file remains unchanged  
+
+---
+
+##### Option 2: Update Title and File
+- Content-Type: `multipart/form-data`
+
+Request Body (form-data):
+- title (string): Updated title
+- file (file): New `.docx` file
+
+<p align="center">
+  <img src="assets/PATCH-title-file.png" width="800"/>
+</p>
+
+✔ Both title and file will be updated  
+✔ Document content will be re-extracted from the new file
+```
+
 ## Docker
 
 The project is containerized using Docker and can be run using Docker Compose.
