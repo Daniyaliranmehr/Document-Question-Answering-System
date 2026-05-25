@@ -56,6 +56,9 @@ def rag_pipeline(question):
     for doc in all_docs:
         chunks.extend(semantic_split(doc.content))
 
+    if not chunks:
+        return "No documents found in the database. Please upload a document first."
+
     # Step 3: Create vector store
     vectorstore = create_vector_store(chunks)
 
