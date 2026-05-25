@@ -20,8 +20,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from documents.api import list_documents
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/documents/', include('documents.urls')),
