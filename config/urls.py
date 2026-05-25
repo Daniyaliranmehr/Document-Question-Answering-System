@@ -24,7 +24,8 @@ from documents.api import list_documents
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/documents/', include('documents.urls'))
+    path('api/documents/', include('documents.urls')),
+    path('api/qa/', include('qa.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
