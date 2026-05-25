@@ -6,6 +6,8 @@ from .models import Document
 from .serializers import DocumentSerializer
 from .utils import extract_text_from_docx
 
+from django.shortcuts import get_object_or_404
+
 
 class DocumentListView(APIView):
     """
@@ -63,4 +65,41 @@ class DocumentUploadView(APIView):
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class DocumentUpdateView(APIView):
+    """
+    Update an existing document.
+
+    This endpoint allows updating the document title
+    or replacing the uploaded file.
+    """
+
+    def patch(self, request, pk):
+        # 1. Get document or return 404 if not found
+        document = get_object_or_404(Document, pk=pk)
+
+        # 2. Apply partial update
+        serializer = DocumentSerializer(
+            document,
+            data=request.data,
+            partial=True
+        )
+
+        # 3. Validate input data
+        if serializer.is_valid():
+
+            # 4. Save updated fields
+            document = serializer.save()
+
+            # 5. If file is updated, re-extract content
+            if 'file' in request.FILES:
+                document.content = extract_text_from_docx(document.file.path)
+                document.save(update_fields=['content'])
+
+            # 6. Return updated object
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        # 7. If validation fails
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
