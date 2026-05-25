@@ -434,6 +434,7 @@ Request Body (form-data):
   <img src="assets/PATCH-title-file.png" width="800"/>
 </p>
 
+
 ✔ Both title and file will be updated  
 ✔ Document content will be re-extracted from the new file
 
