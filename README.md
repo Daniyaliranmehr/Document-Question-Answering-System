@@ -332,8 +332,8 @@ http://127.0.0.1:8000/api/
 ### Document Endpoints
 
 #### 1. List All Documents
-- URL: /documents/
-- Method: GET
+- URL: `/documents/`
+- Method: `GET`
 - Description: Returns a list of all uploaded documents.
 
 <p align="center">
@@ -343,8 +343,8 @@ http://127.0.0.1:8000/api/
 ---
 
 #### 2. Retrieve a Single Document
-- URL: /documents/<id>/
-- Method: GET
+- URL: `/documents/<id>/`
+- Method: `GET`
 - Description: Returns detailed information about a specific document.
 
 <p align="center">
@@ -354,20 +354,47 @@ http://127.0.0.1:8000/api/
 ---
 
 #### 3. Upload a Document
-- URL: /documents/upload/
-- Method: POST
+- URL: `/documents/upload/`
+- Method: `POST`
 - Description: Uploads a new document to the system.
-- Content-Type: multipart/form-data
+- Content-Type: `multipart/form-data`
 
 <p align="center">
-  <img src="assets/POST.png" width="800"/>
+  <img src="assets/POST-upload.png" width="800"/>
 </p>
-
----
 
 Request Body (form-data):
 - title (string): Title of the document
 - file (file): The .docx file to be uploaded
+
+---
+
+#### 4. Ask a Question
+- URL: `/qa/ask/`
+- Method: `POST`
+- Description: Sends a question to the RAG pipeline and returns an AI-generated answer based on the uploaded documents.
+- Content-Type: `application/json`
+
+<p align="center">
+  <img src="assets/POST-question.png" width="800"/>
+</p>
+
+Example Request Body (`JSON`):
+
+```json
+{
+  "question": "What is Python?"
+}
+```
+
+Example Response:
+
+```json
+{
+  "question": "What is Python?",
+  "answer": "Python is a programming language..."
+}
+```
 
 ## Docker
 
@@ -393,7 +420,6 @@ Local project directory is mounted into the container for development.
 
 - [x] Add REST API endpoints for external integrations
 - [ ] Support additional document formats (PDF, TXT)
-- [ ] Persist FAISS vector index instead of rebuilding on each query
 - [ ] Implement user authentication and multi-user support
 - [ ] Add conversation history and chat interface
 - [ ] Upgrade to more advanced commercial LLMs as computational and financial resources become available
