@@ -49,7 +49,7 @@ To illustrate these features, two sample documents are used:
 ### Upload Document
 
 <p align="center">
-  <img src="demo/Add-doc.gif" width="700"/>
+  <img src="assets/Add-doc.gif" width="700"/>
 </p>
 
 ---
@@ -57,7 +57,7 @@ To illustrate these features, two sample documents are used:
 ### Ask Question
 
 <p align="center">
-  <img src="demo/Add-QA.gif" width="700"/>
+  <img src="assets/Add-QA.gif" width="700"/>
 </p>
 
 ---
@@ -65,7 +65,7 @@ To illustrate these features, two sample documents are used:
 ### Edit Document
 
 <p align="center">
-  <img src="demo/Edit-doc.gif" width="700"/>
+  <img src="assets/Edit-doc.gif" width="700"/>
 </p>
 
 ---
@@ -73,7 +73,7 @@ To illustrate these features, two sample documents are used:
 ### Delete Document
 
 <p align="center">
-  <img src="demo/Delete-doc.gif" width="700"/>
+  <img src="assets/Delete-doc.gif" width="700"/>
 </p>
 
 ## Tech Stack
@@ -336,16 +336,34 @@ http://127.0.0.1:8000/api/
 - Method: GET
 - Description: Returns a list of all uploaded documents.
 
+<p align="center">
+  <img src="assets/GET-all.png" width="800"/>
+</p>
+
+---
+
 #### 2. Retrieve a Single Document
 - URL: /documents/<id>/
 - Method: GET
 - Description: Returns detailed information about a specific document.
+
+<p align="center">
+  <img src="assets/GET-one.png" width="800"/>
+</p>
+
+---
 
 #### 3. Upload a Document
 - URL: /documents/upload/
 - Method: POST
 - Description: Uploads a new document to the system.
 - Content-Type: multipart/form-data
+
+<p align="center">
+  <img src="assets/POST.png" width="800"/>
+</p>
+
+---
 
 Request Body (form-data):
 - title (string): Title of the document
@@ -373,9 +391,9 @@ Local project directory is mounted into the container for development.
 
 ## Future Improvements
 
-- Add REST API endpoints for external integrations
-- Support additional document formats such as PDF and TXT
-- Persist FAISS vector index instead of rebuilding on each query
-- Implement user authentication and multi-user support
-- Add conversation history and chat interface
-- Upgrade to more advanced commercial LLMs as computational and financial resources become available
+- [x] Add REST API endpoints for external integrations
+- [ ] Support additional document formats (PDF, TXT)
+- [ ] Persist FAISS vector index instead of rebuilding on each query
+- [ ] Implement user authentication and multi-user support
+- [ ] Add conversation history and chat interface
+- [ ] Upgrade to more advanced commercial LLMs as computational and financial resources become available
