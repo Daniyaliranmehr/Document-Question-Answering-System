@@ -280,7 +280,7 @@ After running the project and openning the admin panel, all interactions are han
 ### 1. Upload Documents
 - Navigate to the **Documents** section
 - Click **Add Document**
-- Upload a `.docx` file
+- Upload a `.docx`, `.pdf`, or `.txt` file
 - The system will automatically extract and store the text content
 
 ---
