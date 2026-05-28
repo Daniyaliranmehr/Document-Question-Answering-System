@@ -11,7 +11,7 @@ class DocumentSerializer(serializers.ModelSerializer):
 
 
 def validate_file(self, value):
-    allowed_extensions = ['.docx', '.txt']
+    allowed_extensions = ['.docx', '.pdf', '.txt']
 
     extension = os.path.splitext(value.name)[1].lower()
 
