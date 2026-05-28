@@ -4,7 +4,7 @@ from rest_framework import status
 
 from .models import Document
 from .serializers import DocumentSerializer
-from .utils import extract_text_from_docx
+from .utils import extract_text
 
 from django.shortcuts import get_object_or_404
 
@@ -60,7 +60,7 @@ class DocumentUploadView(APIView):
             document = serializer.save()
 
             if document.file.name.endswith('.docx'):
-                document.content = extract_text_from_docx(document.file.path)
+                document.content = extract_text(document.file.path)
                 document.save(update_fields=['content'])
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -90,7 +90,7 @@ class DocumentUpdateView(APIView):
             document = serializer.save()
 
             if 'file' in request.FILES:
-                document.content = extract_text_from_docx(document.file.path)
+                document.content = extract_text(document.file.path)
                 document.save(update_fields=['content'])
 
             return Response(serializer.data, status=status.HTTP_200_OK)

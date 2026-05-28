@@ -1,5 +1,5 @@
 from django.db import models
-from .utils import extract_text_from_docx
+from .utils import extract_text
 
 
 class Document(models.Model):
@@ -13,8 +13,8 @@ class Document(models.Model):
 
         super().save(*args, **kwargs)
 
-        if is_new and self.file and self.file.name.endswith('.docx'):
-            self.content = extract_text_from_docx(self.file.path)
+        if is_new and self.file:
+            self.content = extract_text(self.file.path)
             super().save(update_fields=['content'])
 
     def __str__(self):

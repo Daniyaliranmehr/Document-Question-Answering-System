@@ -17,7 +17,7 @@ def ask_llm(question, context):
     }
 
     data = {
-        "model": "arcee-ai/trinity-large-thinking:free",
+        "model": "openrouter/free",
 
         "messages": [
             {
