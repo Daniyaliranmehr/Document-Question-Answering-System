@@ -10,6 +10,9 @@ from django.shortcuts import get_object_or_404
 
 from django.shortcuts import render
 
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+
 
 class DocumentListView(APIView):
     """
@@ -46,6 +49,7 @@ class DocumentDetailView(APIView):
         return Response(serializer.data)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class DocumentUploadView(APIView):
     """
     Upload a new document.
@@ -54,8 +58,13 @@ class DocumentUploadView(APIView):
     After saving the file, its text content is extracted (if supported)
     and stored in the database for further processing (e.g., RAG pipeline).
     """
+    authentication_classes = []
+    permission_classes = []
 
     def post(self, request):
+        print("REQUEST DATA:", request.data)
+        print("REQUEST FILES:", request.FILES)
+        
         serializer = DocumentSerializer(data=request.data)
 
         if serializer.is_valid():
