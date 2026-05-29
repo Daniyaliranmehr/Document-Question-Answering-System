@@ -280,7 +280,7 @@ After running the project and openning the admin panel, all interactions are han
 ### 1. Upload Documents
 - Navigate to the **Documents** section
 - Click **Add Document**
-- Upload a `.docx` file
+- Upload a `.docx`, `.pdf`, or `.txt` file
 - The system will automatically extract and store the text content
 
 ---
@@ -476,8 +476,9 @@ Local project directory is mounted into the container for development.
 ## Future Improvements
 
 - [x] Add REST API endpoints for external integrations
+- [x] Support additional document formats (PDF, TXT)
 - [ ] Persist FAISS vector index instead of rebuilding it on every query
-- [ ] Support additional document formats (PDF, TXT)
 - [ ] Implement user authentication and multi-user support
-- [ ] Add conversation history and chat interface
+- [ ] Add chat interface
+- [ ] Add conversation history
 - [ ] Upgrade to more advanced commercial LLMs as computational and financial resources become available
