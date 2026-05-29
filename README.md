@@ -479,5 +479,6 @@ Local project directory is mounted into the container for development.
 - [x] Support additional document formats (PDF, TXT)
 - [ ] Persist FAISS vector index instead of rebuilding it on every query
 - [ ] Implement user authentication and multi-user support
-- [ ] Add conversation history and chat interface
+- [ ] Add chat interface
+- [ ] Add conversation history
 - [ ] Upgrade to more advanced commercial LLMs as computational and financial resources become available
