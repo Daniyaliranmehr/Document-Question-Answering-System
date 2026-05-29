@@ -8,6 +8,8 @@ from .utils import extract_text
 
 from django.shortcuts import get_object_or_404
 
+from django.shortcuts import render
+
 
 class DocumentListView(APIView):
     """
@@ -113,3 +115,10 @@ class DocumentDeleteView(APIView):
             {"message": "Document deleted successfully."},
             status=status.HTTP_200_OK
         )
+    
+
+def home(request):
+    """
+    Render the home page template.
+    """
+    return render(request, 'index.html')

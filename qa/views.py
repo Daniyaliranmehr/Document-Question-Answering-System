@@ -5,8 +5,16 @@ from rest_framework import status
 from .serializers import QuestionSerializer
 from .rag import rag_pipeline
 
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
+
+@method_decorator(csrf_exempt, name='dispatch')
 class AskQuestionView(APIView):
+
+    authentication_classes = []
+    permission_classes = []
+
     """
     Answer user questions using the RAG pipeline.
 
@@ -16,9 +24,11 @@ class AskQuestionView(APIView):
     """
 
     def post(self, request):
+
         serializer = QuestionSerializer(data=request.data)
 
         if serializer.is_valid():
+
             question = serializer.validated_data['question']
 
             answer = rag_pipeline(question)
@@ -31,4 +41,7 @@ class AskQuestionView(APIView):
                 status=status.HTTP_200_OK
             )
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(
+            serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
