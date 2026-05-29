@@ -477,8 +477,8 @@ Local project directory is mounted into the container for development.
 
 - [x] Add REST API endpoints for external integrations
 - [x] Support additional document formats (PDF, TXT)
-- [ ] Add Frontend
-- [ ] Add conversation history
+- [x] Implement frontend
+- [ ] Implement conversation interface
 - [ ] Implement user authentication
 - [ ] Implement multi-user support
 - [ ] Persist FAISS vector index instead of rebuilding it on every query
