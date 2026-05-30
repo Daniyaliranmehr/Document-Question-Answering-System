@@ -167,7 +167,7 @@ The `documents` application is responsible for document ingestion, storage, and 
 Defines the structure and behavior of uploaded documents.
 
 - Stores document title and uploaded file
-- Extracts and stores text content from DOCX files
+- Extracts and stores text content from the files
 - Automatically processes new documents upon first save
 - Ensures extracted text is available for downstream AI processing
 
@@ -176,7 +176,7 @@ Defines the structure and behavior of uploaded documents.
 #### `utils.py`
 Provides utility functions for document processing.
 
-- Extracts raw text from DOCX files using `python-docx`
+- Extracts raw text from the files
 - Iterates through all paragraphs in the document
 - Returns clean, newline-separated text for further processing
 
@@ -186,7 +186,7 @@ Provides utility functions for document processing.
 Integrates the Document model into Django Admin.
 
 - Registers `Document` model in the admin interface
-- Enables upload and management of DOCX files
+- Enables upload and management of the files
 - Provides access to extracted content for verification and debugging
 
 ---
