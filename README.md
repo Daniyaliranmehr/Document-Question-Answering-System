@@ -151,7 +151,7 @@ Handles embedding generation and vector similarity search.
 Manages communication with the external Large Language Model via OpenRouter API.
 
 - Uses OpenRouter API for LLM inference
-- Model: `arcee-ai/trinity-large-thinking:free`
+- Model: `openrouter/free`
 - Sends structured prompts containing context + question
 - Uses a system prompt to enforce context-based answering
 - Handles API requests and error management
