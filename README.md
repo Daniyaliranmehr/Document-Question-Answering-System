@@ -8,6 +8,18 @@ To improve answer quality, the documents are semantically divided into smaller c
 
 The entire workflow, including document management, question submission, and answer history tracking, is handled through the Django Admin panel.
 
+## 🆕 What's New
+
+### Web-Based User Interface (Demo)
+
+A new web-based user interface has been added to the project to provide a more interactive and user-friendly experience.
+
+<p align="center">
+  <img src="assets/frontend-basic.png" width="700"/>
+</p>
+
+> Note: The current interface is a demo version and is still under active development. More features, improvements, and UI enhancements will be added in future updates.
+
 ## Key Features
 
 - Upload and manage documents
@@ -477,9 +489,17 @@ Local project directory is mounted into the container for development.
 
 - [x] Add REST API endpoints for external integrations
 - [x] Support additional document formats (PDF, TXT)
-- [x] Implement frontend
+- [x] Implement frontend interface
 - [ ] Implement conversation interface
 - [ ] Implement user authentication
 - [ ] Implement multi-user support
 - [ ] Persist FAISS vector index instead of rebuilding it on every query
 - [ ] Upgrade to more advanced commercial LLMs as computational and financial resources become available
+
+---
+
+## Project Plan
+
+> This project serves as a sample implementation of a Document Question Answering System. More advanced and customized solutions based on this project will be developed and extended according to different requirements and applications.
+>
+> Additional features, improvements, and optimizations will continue to be added to the current version of this project.
