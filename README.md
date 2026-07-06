@@ -496,10 +496,24 @@ Local project directory is mounted into the container for development.
 - [ ] Persist FAISS vector index instead of rebuilding it on every query
 - [ ] Upgrade to more advanced commercial LLMs as computational and financial resources become available
 
----
-
 ## Project Plan
 
 > This project serves as a sample implementation of a Document Question Answering System. More advanced and customized solutions based on this project will be developed and extended according to different requirements and applications.
 >
 > Additional features, improvements, and optimizations will continue to be added to the current version of this project.
+
+## Contribution
+
+This project is currently not open for direct code contributions. If you are interested in contributing, suggesting improvements, or collaborating on this project, please contact me via:
+
+- Email: daniyaliranmehr@gmail.com
+- LinkedIn: [daniyaliranmehr](https://www.linkedin.com/in/daniyaliranmehr/)
+- GitHub: [Daniyal Iranmehr](https://github.com/Daniyaliranmehr)
+
+## License
+
+This project is proprietary software. All rights reserved.
+
+The source code is provided for viewing purposes only. Any use, copying,
+modification, distribution, or creation of derivative works from this project
+requires explicit written permission from the author.
