@@ -498,7 +498,7 @@ Local project directory is mounted into the container for development.
 
 ## Project Plan
 
-> This project serves as a sample implementation of a Document Question Answering System. More advanced and customized solutions based on this project will be developed and extended according to different requirements and applications.
+> This project serves as a sample implementation of a RAG System. More advanced and customized solutions based on this project will be developed and extended according to different requirements and applications.
 >
 > Additional features, improvements, and optimizations will continue to be added to the current version of this project.
 
